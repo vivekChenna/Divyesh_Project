@@ -48,7 +48,3 @@ def chat_with_audio(user: UserQuestion):
         return response
     return {"error": "An error occurred while searching the vector store"}
 
-if __name__ == "__main__":
-    import uvicorn
-
-    uvicorn.run(app, host="0.0.0.0", port=8001)
