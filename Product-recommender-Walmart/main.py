@@ -61,5 +61,18 @@ def get_product(no_of_product: str):
     """
     return df.head(int(no_of_product)).to_dict(orient='records')
 
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+@app.get("/get_product_by_name")
+def get_product_by_name(product_name: str):
+    """
+    Get product recommendations based on the input product name.
+
+    Args:
+        product_name (str): The name of the product to get recommendations for.
+
+    Returns:
+        dict: Response containing the recommended products.
+    """
+    return df[df['PRODUCT_NAME'].str.lower() == product_name.lower()].to_dict(orient='records')
+
+# if __n
+
