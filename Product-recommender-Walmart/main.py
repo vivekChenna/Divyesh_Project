@@ -59,7 +59,7 @@ def get_product(no_of_product: str):
     Returns:
         dict: Response containing the recommended products.
     """
-    return df.head(int(no_of_product)).to_dict(orient='records')
+    return df.sample(n=int(no_of_product)).to_dict(orient='records')
 
 @app.get("/get_product_by_name")
 def get_product_by_name(product_name: str):
